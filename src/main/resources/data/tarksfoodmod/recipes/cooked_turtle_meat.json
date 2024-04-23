@@ -1,0 +1,8 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "tarksfoodmod:turtle_meat"
+  },
+
+  "result": "tarksfoodmod:cooked_turtle_meat"
+}
