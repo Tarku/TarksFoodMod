@@ -21,14 +21,14 @@ public class FoodComponents {
             .hunger(1)
             .meat()
                 .saturationModifier(0.2F)
-                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 6), 0.2F)
+                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 350), 0.3F)
                 .build();
 
         TURTLE_MEAT = (new FoodComponent.Builder())
                 .hunger(1)
                 .meat()
                 .saturationModifier(0.2F)
-                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 6, 2), 0.3F)
+                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 200, 1), 0.3F)
                 .build();
 
         COOKED_TOUGH_MEAT = (new FoodComponent.Builder())
