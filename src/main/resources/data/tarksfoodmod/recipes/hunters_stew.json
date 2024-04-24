@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:beef"
+      },
+      {
+        "item": "tarksfoodmod:tough_meat"
+      }
+    ],
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "result": {
+    "item": "tarksfoodmod:hunters_stew",
+    "count": 1
+  }
+}

@@ -3,5 +3,20 @@
   "item.tarksfoodmod.turtle_meat": "Raw Turtle Meat",
   "item.tarksfoodmod.cooked_tough_meat": "Tough Steak",
   "item.tarksfoodmod.cooked_turtle_meat": "Cooked Turtle Meat",
-  "item.tarksfoodmod.fried_egg": "Fried Egg"
+  "item.tarksfoodmod.fried_egg": "Fried Egg",
+  "item.tarksfoodmod.hunters_stew": "The Hunter's Stew",
+  "item.tarksfoodmod.salt": "Salt",
+  "item.tarksfoodmod.pickled_seaweed": "Pickled Seaweed",
+  "item.tarksfoodmod.mutineers_carpaccio": "The Mutineer's Carpaccio",
+
+  "effect.tarksfoodmod.fishing_boost": "Fishing Bonus",
+
+  "item.tarksfoodmod.tough_meat.tooltip": "Might make you sickly, but deliciously stringy.",
+  "item.tarksfoodmod.turtle_meat.tooltip": "Fishy, but beware of chelonitoxism!",
+  "item.tarksfoodmod.cooked_tough_meat.tooltip": "Probably some Neanderthal's dream.",
+  "item.tarksfoodmod.cooked_turtle_meat.tooltip": "You did WHAT to those ninja teenagers?",
+  "item.tarksfoodmod.fried_egg.tooltip": "Overcast.",
+  "item.tarksfoodmod.salt.tooltip": "Just plain old salt.",
+  "item.tarksfoodmod.pickled_seaweed.tooltip": "Yum, pickles.",
+  "item.tarksfoodmod.mutineers_carpaccio.tooltip": "Hot single fish in the area now want to meet you."
 }

@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tarksfoodmod:pickled_seaweed"
+    },
+    [
+      {
+        "item": "tarksfoodmod:turtle_meat"
+      },
+      {
+        "item": "minecraft:raw_cod"
+      }
+    ],
+    [
+      {
+        "item": "tarksfoodmod:turtle_meat"
+      },
+      {
+        "item": "minecraft:raw_cod"
+      }
+    ],
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "tarksfoodmod:mutineers_carpaccio",
+    "count": 1
+  }
+}

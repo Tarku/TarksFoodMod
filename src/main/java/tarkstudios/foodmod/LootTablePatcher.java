@@ -10,6 +10,7 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
@@ -57,6 +58,18 @@ public class LootTablePatcher {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0f, 2.0f)))
                         .with(ItemEntry.builder(FoodItems.TURTLE_MEAT));
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            Identifier drownedLootTableId = EntityType.DROWNED.getLootTableId();
+
+            if (source.isBuiltin() && id.equals(drownedLootTableId))
+            {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .conditionally(RandomChanceLootCondition.builder(0.3f))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)))
+                        .with(ItemEntry.builder(IngredientItems.SALT));
 
                 tableBuilder.pool(poolBuilder.build());
             }

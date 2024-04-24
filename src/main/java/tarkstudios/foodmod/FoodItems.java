@@ -11,6 +11,13 @@ import org.slf4j.Logger;
 
 public class FoodItems
 {
+    public enum EatingReturns
+    {
+        NOTHING,
+        BOTTLE,
+        BOWL
+    }
+
     public static Logger LOGGER = LoggerFactory.getLogger("tarksfoodmod/items");
 
     public static Item TOUGH_MEAT;
@@ -18,44 +25,57 @@ public class FoodItems
     public static Item COOKED_TOUGH_MEAT;
     public static Item COOKED_TURTLE_MEAT;
     public static Item FRIED_EGG;
+    public static Item HUNTERS_STEW;
+
+    public static Item PICKLED_SEAWEED;
+
+    public static Item MUTINEERS_CARPACCIO;
+
 
     private static Item LastItem = Items.COOKED_BEEF;
 
     private static void addInFoodTab(Item item)
     {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> {
-            content.addAfter(LastItem, item);
-        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> content.addAfter(LastItem, item));
 
         LastItem = item;
     }
 
     private static void registerItem(String id, Item item)
     {
-        Registry.register(Registries.ITEM, new Identifier("tarksfoodmod", id), item);
+        Registry.register(
+                Registries.ITEM,
+                new Identifier(
+                        TarksFoodMod.MOD_ID,
+                        id
+                ),
+                item
+        );
+    }
+
+    private static Item makeFoodItem(String id, FoodComponent foodComponent, EatingReturns eatingReturns)
+    {
+        FoodTooltipItem newItem = new FoodTooltipItem(id, foodComponent, eatingReturns);
+
+        registerItem(id, newItem);
+        addInFoodTab(newItem);
+
+        return newItem;
     }
 
     public static void initialize()
     {
-        TOUGH_MEAT = new Item(new Item.Settings().food(FoodComponents.TOUGH_MEAT));
-        registerItem("tough_meat", TOUGH_MEAT);
-        addInFoodTab(TOUGH_MEAT);
+        TOUGH_MEAT = makeFoodItem("tough_meat", FoodComponents.TOUGH_MEAT, EatingReturns.NOTHING);
+        TURTLE_MEAT = makeFoodItem("turtle_meat", FoodComponents.TURTLE_MEAT, EatingReturns.NOTHING);
+        COOKED_TOUGH_MEAT = makeFoodItem("cooked_tough_meat", FoodComponents.COOKED_TOUGH_MEAT, EatingReturns.NOTHING);
+        COOKED_TURTLE_MEAT = makeFoodItem("cooked_turtle_meat", FoodComponents.COOKED_TURTLE_MEAT, EatingReturns.NOTHING);
+        FRIED_EGG = makeFoodItem("fried_egg", FoodComponents.FRIED_EGG, EatingReturns.NOTHING);
 
-        TURTLE_MEAT = new Item(new Item.Settings().food(FoodComponents.TURTLE_MEAT));
-        registerItem("turtle_meat", TURTLE_MEAT);
-        addInFoodTab(TURTLE_MEAT);
+        HUNTERS_STEW = makeFoodItem("hunters_stew", FoodComponents.HUNTERS_STEW, EatingReturns.BOWL);
 
-        COOKED_TOUGH_MEAT = new Item(new Item.Settings().food(FoodComponents.COOKED_TOUGH_MEAT));
-        registerItem("cooked_tough_meat", COOKED_TOUGH_MEAT);
-        addInFoodTab(COOKED_TOUGH_MEAT);
+        PICKLED_SEAWEED = makeFoodItem("pickled_seaweed", FoodComponents.PICKLED_SEAWEED, EatingReturns.BOTTLE);
 
-        COOKED_TURTLE_MEAT = new Item(new Item.Settings().food(FoodComponents.COOKED_TURTLE_MEAT));
-        registerItem("cooked_turtle_meat", COOKED_TURTLE_MEAT);
-        addInFoodTab(COOKED_TURTLE_MEAT);
-
-        FRIED_EGG = new Item(new Item.Settings().food(FoodComponents.FRIED_EGG));
-        registerItem("fried_egg", FRIED_EGG);
-        addInFoodTab(FRIED_EGG);
+        MUTINEERS_CARPACCIO = makeFoodItem("mutineers_carpaccio", FoodComponents.MUTINEERS_CARPACCIO, EatingReturns.BOWL);
 
         LOGGER.info("Initialized food items");
     }

@@ -14,6 +14,9 @@ public class FoodComponents {
     public static FoodComponent COOKED_TOUGH_MEAT;
     public static FoodComponent COOKED_TURTLE_MEAT;
     public static FoodComponent FRIED_EGG;
+    public static FoodComponent HUNTERS_STEW;
+    public static FoodComponent PICKLED_SEAWEED;
+    public static FoodComponent MUTINEERS_CARPACCIO;
 
     public static void initialize()
     {
@@ -46,6 +49,22 @@ public class FoodComponents {
         FRIED_EGG = (new FoodComponent.Builder())
                 .hunger(7)
                 .saturationModifier(0.9F)
+                .build();
+
+        HUNTERS_STEW = (new FoodComponent.Builder())
+                .hunger(8)
+                .saturationModifier(1.2F)
+                .build();
+
+        PICKLED_SEAWEED = (new FoodComponent.Builder())
+                .hunger(4)
+                .saturationModifier(0.1F)
+                .build();
+
+        MUTINEERS_CARPACCIO = (new FoodComponent.Builder())
+                .hunger(6)
+                .saturationModifier(1.1F)
+                .statusEffect(new StatusEffectInstance(TarksFoodMod.FISHING_BOOST_EFFECT, 2400), 3.0f)
                 .build();
 
         LOGGER.info("Initialized food components");
